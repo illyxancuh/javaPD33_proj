@@ -1,6 +1,9 @@
 package com.BookHouse.Controller;
 
 
+import com.BookHouse.DTO.BookDTO;
+import com.BookHouse.DTO.GenreDTO;
+import com.BookHouse.Domain.Book;
 import com.BookHouse.Domain.Genre;
 import com.BookHouse.Interface.IGenreService;
 import lombok.AllArgsConstructor;
@@ -17,5 +20,11 @@ public class GenreController {
     @ResponseStatus(HttpStatus.OK)
     public Genre getGenreById(@PathVariable Integer id){
         return genreService.findById(id);
+    }
+
+    @PostMapping("add")
+    @ResponseStatus(HttpStatus.CREATED)
+    public GenreDTO addGenre(@RequestBody Genre genre){
+        return genreService.add(genre);
     }
 }

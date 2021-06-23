@@ -1,6 +1,9 @@
 package com.BookHouse.Service;
 
 
+import com.BookHouse.DTO.BookDTO;
+import com.BookHouse.DTO.BookRatingDTO;
+import com.BookHouse.Domain.Book;
 import com.BookHouse.Domain.BookRating;
 
 import com.BookHouse.Interface.IBookRatingService;
@@ -20,5 +23,10 @@ public class BookRatingService implements IBookRatingService {
         BookRating bookRating = bookRatingRepository.findById(id)
                 .orElseThrow(() -> new ItemNotFoundException("Book with id has not found!"));
         return bookRating;
+    }
+
+    @Override
+    public BookRatingDTO add(BookRating bookRating) {
+        return new BookRatingDTO(bookRatingRepository.save(bookRating));
     }
 }
