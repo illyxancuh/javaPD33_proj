@@ -1,0 +1,3 @@
+com\bank\api\ApiApplication.class
+com\bank\actuatorservice\HomeController.class
+com\bank\actuatorservice\Greeting.class
