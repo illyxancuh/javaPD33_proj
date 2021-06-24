@@ -49,4 +49,11 @@ public class UserService implements IUserService {
         return new UserDTO(userRepository.save(user));
     }
 
+    @Override
+    public void deleteById(Integer id){
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("User with id has not found"));
+        userRepository.delete(user);
+    }
+
 }

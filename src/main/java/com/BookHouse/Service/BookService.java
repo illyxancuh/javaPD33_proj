@@ -3,6 +3,7 @@ package com.BookHouse.Service;
 import com.BookHouse.DTO.BookDTO;
 import com.BookHouse.DTO.UserDTO;
 import com.BookHouse.Domain.Book;
+import com.BookHouse.Domain.Genre;
 import com.BookHouse.Domain.User;
 import com.BookHouse.Utils.Patch;
 import com.BookHouse.exception.ItemNotFoundException;
@@ -48,5 +49,12 @@ public class BookService implements IBookService {
     @Override
     public BookDTO add(Book book) {
         return new BookDTO(bookRepository.save(book));
+    }
+
+    @Override
+    public void deleteById(Integer id){
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("User with id has not found"));
+        bookRepository.delete(book);
     }
 }

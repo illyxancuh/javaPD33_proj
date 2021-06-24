@@ -9,5 +9,5 @@ public interface IUserService {
     UserDTO add(User user);
     User findById(Integer id);
     ResponseEntity<User> update(Integer id, JsonPatch patch);
-
+    void deleteById(Integer id);
 }

@@ -41,4 +41,10 @@ public class UserController {
 
         return userService.update(id, patch);
     }
+
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteUser(@PathVariable Integer id){
+        userService.deleteById(id);
+    }
 }

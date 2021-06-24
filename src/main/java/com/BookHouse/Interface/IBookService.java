@@ -10,4 +10,5 @@ public interface IBookService {
     Book findById(Integer id);
     BookDTO add(Book book);
     ResponseEntity<Book> update(Integer id, JsonPatch patch);
+    void deleteById(Integer id);
 }
