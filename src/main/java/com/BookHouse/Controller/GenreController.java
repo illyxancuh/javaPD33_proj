@@ -37,4 +37,10 @@ public class GenreController {
     public GenreDTO addGenre(@RequestBody Genre genre){
         return genreService.add(genre);
     }
+
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteGenre(@PathVariable Integer id){
+        genreService.deleteById(id);
+    }
 }

@@ -35,4 +35,10 @@ public class BookController {
 
         return bookService.update(id, patch);
     }
+
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteBook(@PathVariable Integer id){
+        bookService.deleteById(id);
+    }
 }

@@ -52,4 +52,11 @@ public class GenreService implements IGenreService {
     public GenreDTO add(Genre genre) {
         return new GenreDTO(genreRepository.save(genre));
     }
+
+    @Override
+    public void deleteById(Integer id){
+        Genre genre = genreRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("User with id has not found"));
+        genreRepository.delete(genre);
+    }
 }

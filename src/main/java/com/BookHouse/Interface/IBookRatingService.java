@@ -10,4 +10,5 @@ public interface IBookRatingService {
     BookRating findById(Integer id);
     BookRatingDTO add(BookRating bookRating);
     ResponseEntity<BookRating> update(Integer id, JsonPatch patch);
+    void deleteById(Integer id);
 }

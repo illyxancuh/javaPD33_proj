@@ -52,4 +52,11 @@ public class BookRatingService implements IBookRatingService {
     public BookRatingDTO add(BookRating bookRating) {
         return new BookRatingDTO(bookRatingRepository.save(bookRating));
     }
+
+    @Override
+    public void deleteById(Integer id){
+        BookRating bookrating = bookRatingRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("User with id has not found"));
+        bookRatingRepository.delete(bookrating);
+    }
 }

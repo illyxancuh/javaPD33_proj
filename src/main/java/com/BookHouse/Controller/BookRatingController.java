@@ -36,4 +36,10 @@ public class BookRatingController {
     public BookRatingDTO addBookRating(@RequestBody BookRating bookRating){
         return bookRatingService.add(bookRating);
     }
+
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteBookRating(@PathVariable Integer id){
+        bookRatingService.deleteById(id);
+    }
 }

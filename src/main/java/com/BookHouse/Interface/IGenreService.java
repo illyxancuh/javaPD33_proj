@@ -11,4 +11,5 @@ public interface IGenreService {
     Genre findById(Integer id);
     GenreDTO add(Genre genre);
     ResponseEntity<Genre> update(Integer id, JsonPatch patch);
+    void deleteById(Integer id);
 }
